@@ -1,9 +1,21 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import './MovieCard.scss';
+
 const MovieCard = ({data}) => {
 
+    // const navigate = useNavigate();
+
+    const handleClick = (id) => {
+        // console.log(id);
+        // navigate(`movies/${id}`);
+        
+    }
+
     return (
-        <div className="card-item">
+        <Link to={`/movies/${data.imdbID}`}>
+        <div className="card-item" onClick={()=> handleClick(data.imdbID)}>
             <div className="card-inner">
                 <div className="card-top">
                     <img src={data.Poster} alt={data.Title} />
@@ -16,6 +28,7 @@ const MovieCard = ({data}) => {
                 </div>
             </div>
         </div>
+        </Link>
     )
 }
 

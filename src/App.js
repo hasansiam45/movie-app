@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.scss';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import MovieListing from './components/MovieListing/MovieListing';
@@ -13,10 +13,11 @@ function App() {
     <div className="container">
       <Header/>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/movies" element={<MovieListing />}/>
+        <Route path="/" element={<Navigate to="/home" />} />
+        <Route path="/home/*" element={<Home/>} />
+        {/* <Route path="/movies" element={<MovieListing />}/> */}
         <Route path="movies/:id" element={<MovieDetails />}/>
-        <Route path="*" element={<PageNotFound />}/>
+        {/* <Route path="*" element={<PageNotFound />}/> */}
       </Routes>
       <Footer/>
     </div>
