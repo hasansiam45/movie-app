@@ -8,7 +8,7 @@ import { addMovies } from '../../redux/movies/movieSlice';
 
 const Home = () => {
 
-    const [movieText,setMovieText] = useState('Harry');
+    const [movieText,setMovieText] = useState('Hero');
     const dispatch = useDispatch();
 
     useEffect(()=>{
