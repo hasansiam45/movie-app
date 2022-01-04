@@ -14,17 +14,23 @@ export const fetchAsyncShows = createAsyncThunk(`movies/fetchAsyncShows`, async 
     const response = await axios.get(`${baseUrl}?apikey=${API_KEY}&s=${seriesText}&type=series`)
     return response.data;
 });
+
+export const fetchAsyncDetails = createAsyncThunk(`movies/fetchAsyncDetails`, async (id)=> {
+    const response = await axios.get(`${baseUrl}?apikey=${API_KEY}&i=${id}&plot=full`)
+    return response.data;
+});
 const initialState = {
     movies: {},
     shows: {},
+    details: {}
 };
 
 const movieSlice = createSlice({
     name: "movies",
     initialState,
     reducers: {
-        addMovies: (state, {payload}) => {
-            state.movies = payload;
+        removeDetails: (state) => {
+            state.details = {};
         },
     },
     extraReducers: {
@@ -40,10 +46,15 @@ const movieSlice = createSlice({
         [fetchAsyncShows.fulfilled] : (state, {payload}) => {
             return {...state, shows: payload};
         },
+        [fetchAsyncDetails.fulfilled] : (state, {payload}) => {
+            return {...state, details: payload};
+        }
     }
 });
 
-export const {addMovies} = movieSlice.actions;
+export const {removeDetails} = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
 export const getAllShows = (state) => state.movies.shows;
+export const getDetails = (state) => state.movies.details;
+
 export default movieSlice.reducer;
