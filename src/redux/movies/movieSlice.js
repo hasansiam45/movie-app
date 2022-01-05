@@ -3,15 +3,15 @@ import axios from "axios";
 import { baseUrl } from "../../common/apis/MovieApi";
 import { API_KEY } from "../../common/apis/MovieApiKey";
 
-export const fetchAsyncMovies = createAsyncThunk(`movies/fetchAsyncMovies`, async ()=> {
-    const movieText = "Hero";
-    const response = await axios.get(`${baseUrl}?apikey=${API_KEY}&s=${movieText}&type=movie`)
+export const fetchAsyncMovies = createAsyncThunk(`movies/fetchAsyncMovies`, async (text)=> {
+
+    const response = await axios.get(`${baseUrl}?apikey=${API_KEY}&s=${text}&type=movie`)
     return response.data;
 });
 
-export const fetchAsyncShows = createAsyncThunk(`movies/fetchAsyncShows`, async ()=> {
-    const seriesText = "friend";
-    const response = await axios.get(`${baseUrl}?apikey=${API_KEY}&s=${seriesText}&type=series`)
+export const fetchAsyncShows = createAsyncThunk(`movies/fetchAsyncShows`, async (text)=> {
+
+    const response = await axios.get(`${baseUrl}?apikey=${API_KEY}&s=${text}&type=series`)
     return response.data;
 });
 

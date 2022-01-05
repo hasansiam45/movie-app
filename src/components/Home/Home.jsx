@@ -8,12 +8,11 @@ import { fetchAsyncMovies, fetchAsyncShows } from './../../redux/movies/movieSli
 
 const Home = () => {
 
-    const movieText = "Hero";
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        dispatch(fetchAsyncMovies());
-        dispatch(fetchAsyncShows());
+        dispatch(fetchAsyncMovies("Hero"));
+        dispatch(fetchAsyncShows("Love"));
     },[dispatch]);
 
     return (

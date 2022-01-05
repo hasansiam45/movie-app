@@ -7,18 +7,31 @@ import MovieListing from './components/MovieListing/MovieListing';
 import MovieDetails from './components/MovieDetails/MovieDetails';
 import Footer from './components/Footer/Footer';
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import SignUp from './components/Login/SignUp';
+import SignIn from './components/Login/SignIn';
 
 function App() {
   return (
     <div className="container">
       <Header/>
-      <Routes>
-        <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/home/*" element={<Home/>} />
-        {/* <Route path="/movies" element={<MovieListing />}/> */}
-        <Route path="movies/:id" element={<MovieDetails />}/>
+      
+        {
+          localStorage.getItem('login') === 'true' ?
+          <Routes>
+            <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="/home/*" element={<Home/>} />
+            <Route path="movies/:id" element={<MovieDetails />}/>
+          </Routes> :
+          <Routes>
+            <Route path="/" element={<SignUp />}/>
+            <Route path="/signUp/*" element={<SignUp />}/>
+            <Route path="/signIn" element={<SignIn />}/>
+          </Routes>
+        }
+
+
         {/* <Route path="*" element={<PageNotFound />}/> */}
-      </Routes>
+      
       <Footer/>
     </div>
   );

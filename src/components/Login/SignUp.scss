@@ -1,0 +1,33 @@
+@import '../../common/colors.scss';
+
+.sign-up{
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    input{
+        margin: 5px 0;
+        padding: 10px;
+        border: none;
+        outline: none;
+    }
+    .btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        button{
+            cursor: pointer;
+            padding: 10px 15px;
+            border: none;
+            outline: none;
+            margin: 10px 0;
+            background-color: rgb(49, 126, 49);
+            color: white;
+            border-radius: 5px;
+        }
+    }
+}
