@@ -3,7 +3,7 @@ import { initializeApp } from 'firebase/app';
 import firebaseConfig from './firebase.config';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import './SignUp.scss';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
 
@@ -29,23 +29,35 @@ const SignUp = () => {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            console.log(errorMessage);
+            alert(errorMessage);
+            setName('');
+            setEmail('');
+            setPassword('');
             // ..
         });
     }
 
     return (
+        <>
         <div className="sign-up">
             <form className="form" onSubmit={handleSubmit}>
-                <input type="text" placeholder="Enter your name" onChange={(e)=> setName(e.target.value)}/> <br/>
-                <input type="email" placeholder="Enter your email" onChange={(e)=> setEmail(e.target.value)}/> <br/>
-                <input type="password" placeholder="Create your password" onChange={(e)=> setPassword(e.target.value)}/> <br/>
+            
+                <input type="text" value={name} placeholder="Enter your name" onChange={(e)=> setName(e.target.value)}/> <br/>
+                <input type="email" value={email} placeholder="Enter your email" onChange={(e)=> setEmail(e.target.value)}/> <br/>
+                <input type="password" value={password}placeholder="Create your password" onChange={(e)=> setPassword(e.target.value)}/> <br/>
+           
 
                 <div className="btn">
-                <button type="submit">Submit</button>
+                <button type="submit">Submit</button> 
                 </div>
+
+                
+
             </form>
         </div>
+            <span className="switch">Already have account? <Link to="/signIn"><span className="signIn">Sign In</span></Link> </span>
+        </>
+
     )
 }
 

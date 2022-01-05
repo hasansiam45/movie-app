@@ -1,7 +1,7 @@
 @import '../../common/colors.scss';
 
 .sign-up{
-    height: 80vh;
+    height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,9 +15,10 @@
         outline: none;
     }
     .btn{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        text-align: center;
         
         button{
             cursor: pointer;
@@ -29,5 +30,19 @@
             color: white;
             border-radius: 5px;
         }
+    }
+
+    
+}
+
+.switch{
+    height: 20vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .signIn{
+        color: rgb(78, 42, 175);
     }
 }

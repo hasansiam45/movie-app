@@ -54,7 +54,7 @@ const Header = () => {
             {localStorage.getItem('login') === 'true' &&
             <div className="search">
             <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="Search here" onChange={(e)=>handleSearch(e.target.value)}/>
+            <input type="text" value={search} placeholder="Search here" onChange={(e)=>handleSearch(e.target.value)}/>
 
             <button type="submit">Search</button>
             </form>
