@@ -24,9 +24,9 @@
 
     button{
         margin: 0 10px;
-        background-color: white;
+        background-color: green;
         padding: 5px;
-        color: black;
+        color: white;
         border: none;
         outline: none;
         cursor: pointer;
@@ -52,4 +52,31 @@
     padding:10px;
     border-bottom: 1px solid rgb(39, 36, 36);
     cursor: pointer;
+}
+
+@media(max-width:580px){
+    .header{
+        padding: 0px 10px;
+    }
+    .logo{
+        color: $font_primary;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .search{
+        input{
+            width: 55px;
+            padding:5px;
+        }
+    
+        button{
+            width: 50px;
+            margin: 0 5px;
+        }
+    }
+
+    .user.user img{
+        width: 25px;
+        height: 25px;
+    }
 }

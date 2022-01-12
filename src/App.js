@@ -21,11 +21,14 @@ function App() {
             <Route path="/" element={<Navigate to="/home" />} />
             <Route path="/home/*" element={<Home/>} />
             <Route path="movies/:id" element={<MovieDetails />}/>
+            <Route path="*" element={<PageNotFound />}/>
           </Routes> :
           <Routes>
             <Route path="/" element={<SignUp />}/>
             <Route path="/signUp/*" element={<SignUp />}/>
             <Route path="/signIn" element={<SignIn />}/>
+            <Route path="*" element={<PageNotFound />}/>
+
           </Routes>
         }
 
